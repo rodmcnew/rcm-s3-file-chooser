@@ -1,0 +1,18 @@
+{
+  "name": "rcm-s3-file-chooser",
+  "homepage": "https://github.com/reliv/rcm-s3-file-chooser",
+  "description": "A file chooser for RCM that browses Amazon S3",
+  "keywords": [
+    "javascipt",
+    "rcm",
+    "amazon",
+    "file",
+    "chooser",
+    "browser",
+    "s3"
+  ],
+  "authors": [
+    "Rod Mcnew"
+  ],
+  "license": "BSD 2"
+}
