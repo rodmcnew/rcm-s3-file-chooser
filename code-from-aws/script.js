@@ -293,8 +293,13 @@ $(document).ready(function () {
         } else if (isfolder(data)) {
             return '<a data-s3="folder" data-prefix="' + data + '" href="' + object2hrefvirt(s3exp_config.Bucket, data) + '">' + prefix2folder(data) + '</a>';
         } else {
-            return '<a data-s3="object" href="' + object2hrefvirt(s3exp_config.Bucket, data) + '">' + fullpath2filename(data) + '</a>'
-                + ' <a data-s3="object" href="' + object2hrefvirt(s3exp_config.Bucket, data) + '"><img height="25" src="' + object2hrefvirt(s3exp_config.Bucket, data) + '"></a>';//MODED BY RELIV
+            //IMAGE THUMB SUPPORT BELOW ADDED BY RELIV
+            var href = object2hrefvirt(s3exp_config.Bucket, data);
+            var ret =  '<a data-s3="object" href="' + href + '">' + fullpath2filename(data) + '</a>';
+            if(href.endsWith('.png') || href.endsWith('.jpg') || href.endsWith('.jpeg') || href.endsWith('.gif')){
+                ret += ' <a data-s3="object" href="' + href + '"><img height="25" src="' + object2hrefvirt(s3exp_config.Bucket, data) + '"></a>';
+            }
+            return ret;
         }
     }
 
@@ -403,3 +408,17 @@ $(document).ready(function () {
 
     // A large section below was removed by RELIV
 });
+
+
+//ES6 POLYFILL ADDED BY RELIV
+if (!String.prototype.endsWith) {
+    String.prototype.endsWith = function(searchString, position) {
+        var subjectString = this.toString();
+        if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > subjectString.length) {
+            position = subjectString.length;
+        }
+        position -= searchString.length;
+        var lastIndex = subjectString.indexOf(searchString, position);
+        return lastIndex !== -1 && lastIndex === position;
+    };
+}
