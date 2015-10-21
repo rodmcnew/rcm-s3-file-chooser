@@ -309,7 +309,7 @@ $(document).ready(function () {
 
     // Initial DataTable settings
     $('#tb-s3objects').DataTable({
-        iDisplayLength: 50,
+        iDisplayLength: 100,
         order: [[1, 'asc'], [0, 'asc']],
         aoColumnDefs: [
             {
