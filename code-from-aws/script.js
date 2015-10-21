@@ -297,7 +297,7 @@ $(document).ready(function () {
             var href = object2hrefvirt(s3exp_config.Bucket, data);
             var ret =  '<a data-s3="object" href="' + href + '">' + fullpath2filename(data) + '</a>';
             if(href.endsWith('.png') || href.endsWith('.jpg') || href.endsWith('.jpeg') || href.endsWith('.gif')){
-                ret += ' <a data-s3="object" href="' + href + '"><img height="25" src="' + object2hrefvirt(s3exp_config.Bucket, data) + '"></a>';
+                ret += ' <a data-s3="object" href="' + href + '"><img style="max-height:60px;float:right;" src="' + object2hrefvirt(s3exp_config.Bucket, data) + '"></a>';
             }
             return ret;
         }
