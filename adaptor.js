@@ -23,7 +23,7 @@ function S3ExplorerAdaptor(bucketName, explorerIndexHtmlFilePath) {
     }
 
     this.chooseFile = function (onFileChosenCallback, oldPath) {
-        var explorerWindow = window.open(explorerIndexHtmlFilePath, 'Choose a File', 'height=600,width=1000');
+        var explorerWindow = window.open(explorerIndexHtmlFilePath, 'Choose a File', 'scrollbars=1,height=600,width=1000');
         explorerWindow.addEventListener('load', function () {
             explorerWindow.s3ExplorerOnFileChosen = function (path) {
                 explorerWindow.close();
